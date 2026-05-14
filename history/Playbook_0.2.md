@@ -84,11 +84,8 @@ Never maintain duplicated rule sets manually.
 
 Do not teach the agent general programming knowledge.
 
-Modern coding agents already contain extensive default coding guidance in system prompts and runtime policies.
-
 Avoid:
 - style-guide dumps;
-- repeated linter rules;
 - framework tutorials;
 - obvious repository descriptions;
 - repeated system-prompt advice;
@@ -155,39 +152,9 @@ Prefer:
 
 ---
 
-## P5. ASCII-first text
-
-Prefer ASCII in:
-- configs;
-- code;
-- AGENTS.md;
-- slash commands;
-- generated prompts.
-
-Avoid:
-- smart quotes;
-- em/en dashes;
-- unicode arrows;
-- unicode ellipsis;
-- emoji;
-- invisible unicode characters.
-
-Reason:
-- easier grep/search;
-- easier typing;
-- safer shell usage;
-- cleaner diffs;
-- fewer encoding/tooling issues.
-
-Exception: use non-ASCII only when it is semantically necessary.
-
----
-
-## P6. Structured formatting
+## P5. Structured formatting
 
 Clear structure improves retrieval and instruction segmentation.
-
-Structured formatting improves retrieval, segmentation, and instruction parsing.
 
 Useful formats include:
 - Markdown headings;
@@ -207,7 +174,7 @@ Use whichever format the team can maintain consistently.
 
 ---
 
-## P7. Knowledge classification
+## P6. Knowledge classification
 
 Classify knowledge by scope.
 
@@ -224,7 +191,7 @@ If knowledge is useful to the entire team, memory is usually the wrong place.
 
 ---
 
-## P8. Self-updating context
+## P7. Self-updating context
 
 After meaningful work, agents should propose updates when:
 - a non-obvious pitfall was discovered;
@@ -238,8 +205,6 @@ Prefer:
 - compactness;
 - precision;
 - future usefulness.
-
-One precise bullet usually beats a paragraph of narrative.
 
 ---
 
@@ -264,14 +229,6 @@ Verification is mandatory for:
 - public API modifications.
 
 Do not report success without verification artifacts.
-
-Formatting, naming, and style enforcement should primarily come from:
-- linters;
-- formatters;
-- typecheckers;
-- CI validation.
-
-Avoid pushing style micromanagement into AGENTS.md.
 
 ---
 
@@ -361,8 +318,6 @@ Avoid:
 
 Ghost refactoring = rewriting adjacent code unrelated to the task.
 
-Preserve unrelated code and surrounding architecture unless modification is required for correctness, compatibility, or maintainability directly tied to the requested change.
-
 Do not modify nearby code unless required for correctness or maintainability directly related to the requested work.
 
 ---
@@ -377,7 +332,6 @@ The root `AGENTS.md` should answer:
 
 Recommended contents:
 - architectural invariants;
-- prohibitions with rationale;
 - exact build/test/lint commands;
 - deployment constraints;
 - routing to submodules;
@@ -478,8 +432,6 @@ Good candidates:
 
 Avoid overengineering tiny repositories.
 
-The setup complexity should scale with repository complexity.
-
 ---
 
 # 11. Skills and slash commands
@@ -513,8 +465,6 @@ Recommended sections:
 
 Avoid duplicating AGENTS.md inside skills.
 
-Skills should reference canonical project rules instead of re-declaring them.
-
 ---
 
 ## Slash commands
@@ -538,8 +488,6 @@ Avoid:
 
 Memory is local and non-committed.
 
-If knowledge is useful to the whole team, memory is usually the wrong place.
-
 Use memory for:
 - machine-local paths;
 - temporary environment details;
@@ -558,14 +506,6 @@ Prefer structured schemas for automation-related memory.
 # 13. Hooks and automation
 
 Hooks execute logic around runtime events.
-
-Hooks are for behavior that cannot be expressed cleanly through:
-- static instructions;
-- memory;
-- normal workflows;
-- permissions.
-
-Avoid turning hooks into hidden orchestration layers.
 
 Typical uses:
 - formatting;
@@ -630,7 +570,6 @@ Examples:
 
 Guidelines:
 - commit only non-secret configuration;
-- default to read-first integrations;
 - separate read vs write capabilities;
 - prefer read-only defaults;
 - require explicit approval for mutating operations.
@@ -738,8 +677,6 @@ Do not preload massive documentation blobs instead of using retrieval.
 ## A9. Infinite-thread syndrome
 
 Very long uncontrolled sessions often degrade quality.
-
-Prefer clean session boundaries and concise handoff summaries.
 
 ---
 
@@ -893,3 +830,4 @@ Good agent systems are designed like good software systems:
 - controlled capabilities.
 
 Treat agent configuration as engineering infrastructure, not prompt decoration.
+
