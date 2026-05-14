@@ -1,8 +1,17 @@
 # AI Agent Configuration Playbook
 
-Revision: May 2026.
+Vendor-neutral reference and bootstrap guide for configuring AI coding agents across projects and teams.
 
-Supported ecosystems:
+Current revision: May 2026.
+
+This document is designed to be:
+- portable across tools and vendors;
+- compact enough for both humans and models;
+- operational rather than theoretical;
+- safe to share publicly;
+- maintainable over time.
+
+Supported ecosystems include:
 - Claude Code
 - Cursor
 - OpenAI Codex
@@ -10,7 +19,7 @@ Supported ecosystems:
 - MCP-based tooling
 - custom agent runtimes
 
-Principles are tool-agnostic unless noted otherwise.
+The principles are tool-agnostic unless explicitly noted otherwise.
 
 ---
 
@@ -176,17 +185,9 @@ Exception: use non-ASCII only when it is semantically necessary.
 
 ## P6. Structured formatting
 
+Clear structure improves retrieval and instruction segmentation.
+
 Structured formatting improves retrieval, segmentation, and instruction parsing.
-
-Default to Markdown for:
-- general AGENTS.md structure;
-- human-maintained documentation;
-- repository instructions.
-
-Use XML-style delimiters only when:
-- dense machine-oriented segmentation helps;
-- the target model benefits from explicit structural boundaries;
-- prompts contain many independent rule blocks.
 
 Useful formats include:
 - Markdown headings;
@@ -223,26 +224,7 @@ If knowledge is useful to the entire team, memory is usually the wrong place.
 
 ---
 
-## P8. Match the project's working language
-
-Default to English.
-
-Override when the repository's primary working language is non-English:
-- README language;
-- team communication;
-- design documents;
-- code comments.
-
-Cross-project reusable artifacts should usually remain English:
-- shared playbooks;
-- reusable skills;
-- portable templates.
-
-Avoid duplicating the same instructions in multiple languages.
-
----
-
-## P9. Self-updating context
+## P8. Self-updating context
 
 After meaningful work, agents should propose updates when:
 - a non-obvious pitfall was discovered;
@@ -460,16 +442,7 @@ Guidelines:
 - root file contains global invariants;
 - child files contain only local specifics;
 - avoid duplication;
-- keep hierarchy shallow;
-- child AGENTS.md files should explicitly reference the parent context.
-
-Recommended footer for child files:
-
-```md
-## Parent context
-
-Also read /AGENTS.md for global rules and routing.
-```
+- keep hierarchy shallow.
 
 Most tools prioritize the closest relevant `AGENTS.md`, though exact precedence differs by implementation.
 
@@ -720,8 +693,8 @@ Curate aggressively.
 ## A3. Repeating system prompts
 
 Do not waste context on:
-- "You are an expert programmer";
-- "Think step by step";
+- “You are an expert programmer”;
+- “Think step by step”;
 - generic coding advice.
 
 Modern coding tools already inject these behaviors.
@@ -911,5 +884,12 @@ The best AI-agent setups are:
 - observable;
 - minimally duplicated;
 - operationally safe.
+
+Good agent systems are designed like good software systems:
+- clear interfaces;
+- bounded responsibility;
+- low coupling;
+- reproducible behavior;
+- controlled capabilities.
 
 Treat agent configuration as engineering infrastructure, not prompt decoration.
