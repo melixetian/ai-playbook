@@ -1129,4 +1129,4 @@ Further reading: [Habr / HumanLayer on CLAUDE.md](https://habr.com/ru/articles/9
 
 This document is a living one. When you find a new practice or antipattern, add it to the relevant section. When something becomes outdated (e.g. Cursor changes its rules format), update it with a date stamp.
 
-Current revision reflects practices as of **May 2026** (primary links in **References** spot-checked). **Section 19 (Security)** is the canonical security policy. **Paired file:** `ai-agent-setup-playbook.md` (Yandex Arcadia / Arcanum / internal BYOA specifics).
+Current revision reflects practices as of **May 2026** (primary links in **References** spot-checked). **Section 19 (Security)** is the canonical security policy.
